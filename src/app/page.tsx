@@ -8,7 +8,7 @@ export default function Home() {
 
       <section className="mb-6">
         <article className="max-w-[750px] mx-auto mb-6">
-          <p>Hi, I'm Qusai, a full stack web developer with a passion for coding and innovation. I'm currently working on creating a space where I can share my knowledge, projects, and insights from my journey in the tech world.</p>
+          <p>Hi, I&apos;m Qusai, a full stack web developer with a passion for coding and innovation. I&apos;m currently working on creating a space where I can share my knowledge, projects, and insights from my journey in the tech world.</p>
         </article>
 
         <aside>
