@@ -8,14 +8,13 @@ export default function Home() {
 
       <section className="mb-6">
         <article className="max-w-[750px] mx-auto mb-6">
-          <p>Hi, I&apos;m Qusai, a full stack web developer with a passion for coding and innovation. I&apos;m currently working on creating a space where I can share my knowledge, projects, and insights from my journey in the tech world.</p>
+          <p>Hi, I&apos;m Qusai, a full stack web developer with a passion for coding and learning. I&apos;m currently working on creating this space where I can share my knowledge, projects, and insights from my journey in the tech world.</p>
         </article>
 
         <aside>
           <p className="font-semibold">🌟 What to Expect:</p>
           <ul className="list-disc list-inside mb-6 text-left inline-block">
             <li>TL;DRs on the latest coding trends and techniques for full stack developers.</li>
-            <li>Showcase of my projects and collaborations.</li>
             <li>Resources and tips for fellow developers on .Net, React, Vue & Typescript.</li>
             <li>And much more for the modern web developer!</li>
           </ul>
@@ -23,7 +22,6 @@ export default function Home() {
       </section>
 
       <footer>
-        {/* Footer content like social media links, contact info, etc., can go here */}
       </footer>
     </main>
   )
