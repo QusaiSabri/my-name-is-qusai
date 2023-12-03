@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="h-screen mx-auto text-center pt-32 px-28 flex justify-center gap-24 sm:flex-col">
+    <main className="h-screen mx-auto text-center pt-32 px-28 flex flex-col md:flex-row justify-center gap-24">
       <section className="mb-6">
         <article className="max-w-[750px] mx-auto mb-6">
 
