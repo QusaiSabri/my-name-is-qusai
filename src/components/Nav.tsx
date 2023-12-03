@@ -3,7 +3,7 @@ import DarkModeToggle from './DarkModeToggle';
 
 export default function Nav() {
   return (
-    <nav className=' p-4'>
+    <nav className='relative p-4 pos bg-inherit'>
       <div className='mx-auto flex justify-between'>
         <div className='flex space-x-4'>
           <Link
