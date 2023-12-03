@@ -17,13 +17,7 @@ export default function Home() {
           </ul>
         </aside>
       </section>
-      <header className="">
-        <div className="text-3xl mb-6 font-thin">Welcome to my website!</div>
-        <h1 className="text-5xl font-bold mb-6 ">My name is Qusai!</h1>
-        <p className="text-3xl mb-6">I&apos;m a full stack web developer</p>
-        <Image className="rounded-full mb-6 mx-auto" src="https://media.licdn.com/dms/image/D5603AQF0-pv8FN7eeg/profile-displayphoto-shrink_800_800/0/1672940852639?e=1706745600&v=beta&t=a8_IoK5JQVpiAjVCbL8bVMkH3-oHEjUlYetkCFQ5oIo" alt="Qusai Sabri" width="200" height="200" />
-        <p className="text-xl max-w-xl">This website is a space where I can share my knowledge, projects, and insights from my journey in the tech world.</p>        
-      </header>
+     
       <footer>
       </footer>
     </main>
