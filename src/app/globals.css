@@ -78,10 +78,15 @@
   }
 
   body {
-    @apply text-foreground h-screen;
-    background: linear-gradient(to bottom,
+    @apply text-foreground;
+    background: linear-gradient(
+        to bottom,
         transparent,
-        rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+    min-height: 100vh;
+    min-height: 100svh;
   }
 }
 
