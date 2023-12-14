@@ -15,7 +15,10 @@ export type Doc = {
   type: 'Doc'
   title: string
   description?: string | undefined
+  date: IsoDateTimeString
   published: boolean
+  image: string
+  tag?: string | undefined
   /** MDX file body */
   body: MDX
   slug: string
