@@ -17,7 +17,7 @@ export type Doc = {
   description?: string | undefined
   date: IsoDateTimeString
   published: boolean
-  image: string
+  image?: string | undefined
   tag?: string | undefined
   /** MDX file body */
   body: MDX

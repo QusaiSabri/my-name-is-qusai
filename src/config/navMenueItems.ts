@@ -1,10 +1,10 @@
-import { MainNavConfig } from '../types';
+import { MainNavConfig } from "../types";
 
 export const mainNavConfig: MainNavConfig = {
   mainNav: [
     {
-      title: 'Blog',
-      href: '/blog',
+      title: "Blog",
+      href: "/blog",
     },
   ],
 };

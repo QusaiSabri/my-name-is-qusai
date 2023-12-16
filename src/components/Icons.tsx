@@ -5,7 +5,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Command,
-  CreditCard,
   File,
   FileText,
   HelpCircle,
@@ -15,7 +14,6 @@ import {
   LucideProps,
   Moon,
   MoreVertical,
-  Pizza,
   Plus,
   Settings,
   SunMedium,
@@ -23,7 +21,7 @@ import {
   Twitter,
   User,
   X,
-} from 'lucide-react';
+} from "lucide-react";
 
 export const Icons = {
   logo: Command,
@@ -36,14 +34,12 @@ export const Icons = {
   page: File,
   media: Image,
   settings: Settings,
-  billing: CreditCard,
   ellipsis: MoreVertical,
   add: Plus,
   warning: AlertTriangle,
   user: User,
   arrowRight: ArrowRight,
   help: HelpCircle,
-  pizza: Pizza,
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,

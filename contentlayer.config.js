@@ -38,7 +38,7 @@ export const Doc = defineDocumentType(() => ({
     },
     image: {
       type: 'string',
-      required: true,
+      required: false,
     },
     tag: {
       type: 'string',
