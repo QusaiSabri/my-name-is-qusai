@@ -13,7 +13,8 @@ export default function Nav() {
             Qusai Sabri
           </Link>
         </div>
-        <div className='flex space-x-4'>
+        <div className='flex items-center gap-4 px-3 py-2 text-xl'>
+          <Link href='/blog'>Blog</Link>
           <DarkModeToggle />
         </div>
       </div>
