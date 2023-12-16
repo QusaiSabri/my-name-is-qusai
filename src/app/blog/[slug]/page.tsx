@@ -5,7 +5,7 @@ import { formatDate, cn } from "@/lib/utils";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/Icons";
-import SeeAllPostsLink from "@/components/seeAllPostsLink";
+import SeeAllPostsLink from "@/components/SeeAllPostsLink";
 
 interface PageProps {
   params: {
