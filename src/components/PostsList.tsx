@@ -1,19 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { allDocs } from "contentlayer/generated";
-import { compareDesc } from "date-fns";
 
 interface PostsListProps {
-  limit?: number;
+  posts: typeof allDocs;
 }
 
-export default function PostsList({ limit }: PostsListProps) {
-  const posts = allDocs
-    .filter((post) => post.published)
-    .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date));
-    })
-    .slice(0, limit);
+export default function PostsList({ posts }: PostsListProps) {
 
   return (
     <>
@@ -34,7 +27,7 @@ export default function PostsList({ limit }: PostsListProps) {
                   priority={index <= 1}
                 />
               )}
-              <div className="space-y-5 xl:col-span-3">
+              <div className="space-y-5 xl:col-span-3 py-4 pl-4 text-left">
                 <h2 className="text-2xl font-extrabold">{post.title}</h2>
                 {post.description && (
                   <p className="text-muted-foreground">{post.description}</p>

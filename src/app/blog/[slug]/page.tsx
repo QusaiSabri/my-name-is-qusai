@@ -2,9 +2,6 @@ import { allDocs } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import { Mdx } from "@/components/Mdx";
 import { formatDate, cn } from "@/lib/utils";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/Icons";
 import SeeAllPostsLink from "@/components/SeeAllPostsLink";
 
 interface PageProps {
