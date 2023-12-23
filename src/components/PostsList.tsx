@@ -15,7 +15,7 @@ export default function PostsList({ posts }: PostsListProps) {
           {posts.map((post, index) => (
             <article
               key={post._id}
-              className="relative xl:grid xl:grid-cols-4 gap-4 py-8"
+              className="relative xl:grid xl:grid-cols-4 gap-4 py-8 line"
             >
               {post.image && (
                 <Image
@@ -40,7 +40,7 @@ export default function PostsList({ posts }: PostsListProps) {
           ))}
         </div>
       ) : (
-        <p>No posts published.</p>
+        <p className="mt-8">No posts published.</p>
       )}
     </>
   );

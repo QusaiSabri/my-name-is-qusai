@@ -13,7 +13,7 @@ export default function Home() {
   const publishedPostsMoreThanLimit = (totalPublishedPosts - topNPosts.length) >= 1;
 
   return (
-    <main className="mx-auto text-center pt-2 px-8 md:pt-32 md:pl-28 md:pr-8 angled-split">
+    <main className="mx-auto text-center pt-2 px-8 md:pt-32 md:pl-28 md:pr-8 angled-split ">
       <div className="grid grid-rows-1 md:grid-cols-custom-1-2 grid-flow-row ">
         <section className="mb-6 order-last md:order-first">
         <article className="max-w-[750px] mx-auto mb-6"></article>
