@@ -22,7 +22,7 @@ const page = async ({ params }: PageProps) => {
   const post = await getDocsFromSlug(params.slug);
 
   return (
-    <article className="container relative max-w-3xl py-6 lg:py-10">
+    <article className="container relative max-w-4xl py-6 lg:py-10">
       <SeeAllPostsLink className="absolute left-[-200px] top-14 hidden xl:inline-flex" />
       <div>
         {post.date && (
@@ -33,9 +33,9 @@ const page = async ({ params }: PageProps) => {
             Published on {formatDate(post.date)}
           </time>
         )}
-        <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
+        {/* <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
           {post.title}
-        </h1>
+        </h1> */}
       </div>
       <Mdx code={post.body.code} />
       <hr className="mt-12" />
