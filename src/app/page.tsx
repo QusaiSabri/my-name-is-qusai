@@ -41,9 +41,7 @@ export default function Home() {
         <div className="text-3xl font-thin">Welcome to my website!</div>
         <h1 className="text-4xl md:text-5xl font-bold">My name is Qusai!</h1>
         <p className="text-3xl">
-          I&apos;m a full stack
-          <br className="sm:hidden" />
-          web developer
+          I&apos;m a full stack web developer
         </p>
         <Image
           className="rounded-full mx-auto"

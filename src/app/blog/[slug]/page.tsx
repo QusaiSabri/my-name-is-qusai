@@ -33,9 +33,9 @@ const page = async ({ params }: PageProps) => {
             Published on {formatDate(post.date)}
           </time>
         )}
-        <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
+        {/* <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
           {post.title}
-        </h1>
+        </h1> */}
       </div>
       <Mdx code={post.body.code} />
       <hr className="mt-12" />
