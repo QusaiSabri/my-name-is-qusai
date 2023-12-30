@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "../components/Nav";
 import { ThemeProvider } from "../components/theme-provider";
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,15 @@ export default function RootLayout({
           </ThemeProvider>
         </body>
       </html>
+      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-1Q06GE44W9" />
+      <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1Q06GE44W9');
+          `}
+      </Script>
     </>
   );
 }
