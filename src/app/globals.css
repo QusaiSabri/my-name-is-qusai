@@ -133,7 +133,7 @@
   animation: drop 6s 0s infinite;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
-  opacity: 1;
+  opacity: 0;
 }
 .line:nth-child(1)::after {
           animation-delay: 3s;
