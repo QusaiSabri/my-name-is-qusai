@@ -1,0 +1,66 @@
+---
+title: Git Worktree Magic: Switch Branches Without Stashing!
+description: No More Stashing: Git Worktree Lets You Checkout Multiple Branches at Once.
+image:/images/blog/git-worktree.webp
+tag: Git
+date: "2024-03-18"
+published: false
+---
+
+# Git Worktree Magic: Switch Branches Without Stashing!
+
+Git is a powerful tool for developers, but one of its less used features is **Git Worktree**. 
+
+This feature lets you work on multiple branches of the same project at the same time without needing to clone the repo again and again.
+
+## Understanding Git Worktree
+
+Git Worktree lets you check out different branches into separate folders. This is super handy if you're working on multiple features or bugs at once. You don't need to stash your changes and switch branches back and forth in the same folder. Each branch gets its own space, so you can keep your work organized and separate.
+
+>The cool part about Git Worktree is that all these separate folders **share the same .git history**. This means you're not duplicating the repo's history with each new folder, making it easier to manage changes across different branches without the extra bloat.
+
+## Simple Commands to Use Git Worktree
+
+To add a new worktree, use:
+```bash
+git worktree add <path-to-new-worktree> <branch>
+```
+This command links a new folder to the specified branch.
+
+To see all your worktrees, use:
+```bash
+git worktree list
+```
+
+And to remove a worktree, use:
+```bash
+git worktree remove <path-to-worktree>
+```
+
+##  Practical Scenario
+Imagine you're deep into coding a new feature and then you hear about a critical bug that needs fixing ASAP. Normally, you'd stash your work, switch branches, fix the bug, then switch back and unstash. 
+
+This works, but it's a bit clunky and can throw you off your game.
+
+#### Enter Git Worktree ... &#129345;
+With Git Worktree, you can leave your feature work as is. Instead, you create a new worktree for the bug fix:
+```bash
+git worktree add ../bugfix-A bugfix-A
+```
+Now, you've got a new folder right next to your current one just for the bug fix, without messing with your feature work.
+
+## Best Practices: Naming and Folder Structure
+Keeping your workspaces organized is key with Git Worktree. Name your folders after their branches, maybe adding the project name if you're juggling multiple projects. And keep all your worktree folders at the same level, separate from your main project folder, to avoid confusion.
+```css
+projects/
+ ├── main-project/ (Your main folder) 
+ ├── project-feature-A/ (Worktree for feature-A) 
+ └── project-bugfix-A/ (Worktree for bugfix-A)
+```
+
+## Why Not Just Clone the Repo?
+Cloning the repo again seems easy, but it's not as efficient. Each clone has its own .git folder, which means duplicating the history and using more disk space. Plus, managing several clones can be a hassle. Git Worktree sidesteps these issues by keeping one .git history for all branches.
+
+## Integrating Git Worktree with Visual Studio 2022
+
+As of  March 2024, Visual Studio 2022 doesn't have a built-in way to manage Git Worktrees through the UI. But you can still use Git Worktree with it. Just manage your worktrees through the command line and then open those worktree directories in separate instances of Visual Studio as needed.
