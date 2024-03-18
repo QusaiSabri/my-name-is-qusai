@@ -20,7 +20,7 @@ export default function PostsList({ posts }: PostsListProps) {
               {post.image && (
                 <Image
                   src={post.image}
-                  alt={post.title}
+                  alt={post.title} 
                   width={804}
                   height={452}
                   className="rounded-md border bg-muted transition-colors"
@@ -30,7 +30,7 @@ export default function PostsList({ posts }: PostsListProps) {
               <div className="space-y-5 xl:col-span-3 py-4 pl-4 text-left">
                 <h2 className="text-2xl font-extrabold">{post.title}</h2>
                 {post.description && (
-                  <p className="text-muted-foreground">{post.description}</p>
+                  <p className="text-muted-foreground">{post.description} Read More...</p>
                 )}
                 <Link href={post.slug} className="absolute inset-0">
                   <span className="sr-only">View Article</span>
