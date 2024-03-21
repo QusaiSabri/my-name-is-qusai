@@ -28,7 +28,7 @@ export default function PostsList({ posts }: PostsListProps) {
                 />
               )}
               <div className="space-y-5 col-span-3 py-4 pl-4 text-left">
-                <h2 className="text-2xl font-extrabold">{post.title}</h2>
+                <h2 className="md:text-2xl text-lg font-extrabold">{post.title}</h2>
                 {post.description && (
                   <p className="text-muted-foreground">{post.description} Read More...</p>
                 )}

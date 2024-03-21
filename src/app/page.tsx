@@ -45,7 +45,7 @@ export default function Home() {
         </p>
         <Image
           className="rounded-full mx-auto"
-          src="https://media.licdn.com/dms/image/D5603AQF0-pv8FN7eeg/profile-displayphoto-shrink_800_800/0/1672940852639?e=1706745600&v=beta&t=a8_IoK5JQVpiAjVCbL8bVMkH3-oHEjUlYetkCFQ5oIo"
+          src="/images/Qusai_Sabri.jpeg"
           alt="Qusai Sabri"
           width="200"
           height="200"
