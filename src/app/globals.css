@@ -36,13 +36,15 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    
   }
 
   .dark {
     --background: 15, 23, 42;
     --foreground: 210 40% 98%;
 
-    --background-start-rgb: 30, 41, 59;
+    --background-start-rgb: 6, 6, 6 ;
     --background-end-rgb: 15, 23, 42;
 
     --card: 222.2 84% 4.9%;
@@ -77,17 +79,32 @@
     @apply border-border;
   }
 
-  body {
-    @apply text-foreground;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
-    min-height: 100vh;
-    min-height: 100svh;
-  }
+body {
+  @apply text-foreground;
+  background: rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  min-height: 100svh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* background-image: url("/images/stars-galaxy-1.png"); */
+  /* background-size: cover;
+  background-repeat: no-repeat; */
+  opacity: 0.9; /* Adjust the opacity to control the effect of the overlay */
+  z-index: -1; /* Ensure the overlay doesn't cover content */
+}
+
+/* Add your base and utility classes as needed */
+
 }
 
 
