@@ -13,7 +13,7 @@ export default function PostsList({ posts }: PostsListProps) {
       {posts?.length ? (
         <div className="grid sm:grid-cols-1 divide-y">
           {posts.map((post, index) => (
-            <article key={post._id} className="relative xl:grid xl:grid-cols-4 gap-4 py-4 line">
+            <article key={post._id} className="relative xl:grid xl:grid-cols-4 gap-4 py-4">
               {post.image ? (
                 <Image
                   src={post.image}

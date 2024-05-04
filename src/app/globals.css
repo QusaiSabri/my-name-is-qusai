@@ -37,14 +37,14 @@
 
     --radius: 0.5rem;
 
-    
+
   }
 
   .dark {
     --background: 15, 23, 42;
     --foreground: 210 40% 98%;
 
-    --background-start-rgb: 6, 6, 6 ;
+    --background-start-rgb: 6, 6, 6;
     --background-end-rgb: 15, 23, 42;
 
     --card: 222.2 84% 4.9%;
@@ -79,31 +79,33 @@
     @apply border-border;
   }
 
-body {
-  @apply text-foreground;
-  background: rgb(var(--background-start-rgb));
-  min-height: 100vh;
-  min-height: 100svh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-}
+  body {
+    @apply text-foreground;
+    background: rgb(var(--background-start-rgb));
+    min-height: 100vh;
+    min-height: 100svh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
 
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  /* background-image: url("/images/stars-galaxy-1.png"); */
-  /* background-size: cover;
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background-image: url("/images/stars-galaxy-1.png"); */
+    /* background-size: cover;
   background-repeat: no-repeat; */
-  opacity: 0.9; /* Adjust the opacity to control the effect of the overlay */
-  z-index: -1; /* Ensure the overlay doesn't cover content */
-}
+    opacity: 0.9;
+    /* Adjust the opacity to control the effect of the overlay */
+    z-index: -1;
+    /* Ensure the overlay doesn't cover content */
+  }
 
-/* Add your base and utility classes as needed */
+  /* Add your base and utility classes as needed */
 
 }
 
@@ -126,19 +128,6 @@ body::before {
   border-left: 5px solid #090d17;
 }
 
-.angled-split::after {
-  width: 40vw;
-  /* background: linear-gradient(transparent, rgb(211, 182, 182)); */
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
-  background-size: 5px 15rem;
-  background-repeat: no-repeat;
-  background-position: top -10rem left 0;
-  /* box-shadow: 0 .313em .625em #00000033; */
-  animation: glowing-border-walk 6s ease-in infinite;
-  /* box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #70cde0, 0 0 30px #70cde0,
-    0 0 40px #70cde0, 0 0 50px #70cde0; */
-}
-
 .line::after {
   content: "";
   display: block;
@@ -152,16 +141,17 @@ body::before {
   animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
   opacity: 0;
 }
+
 .line:nth-child(1)::after {
-          animation-delay: 3s;
+  animation-delay: 3s;
 }
 
 .line:nth-child(2)::after {
-          animation-delay: 3.5s;
+  animation-delay: 3.5s;
 }
 
 .line:nth-child(3)::after {
-          animation-delay: 4s;
+  animation-delay: 4s;
 }
 
 @keyframes drop {
@@ -169,12 +159,15 @@ body::before {
     right: 0;
     opacity: 0;
   }
+
   10% {
     opacity: 0.3;
   }
+
   20% {
     opacity: 1;
   }
+
   100% {
     right: 100%;
   }
@@ -184,6 +177,7 @@ body::before {
   0% {
     background-position: top -30rem left 0;
   }
+
   100% {
     background-position: bottom -30rem left 0;
   }
@@ -195,10 +189,10 @@ body::before {
   }
 }
 
-@media only screen and (max-width: 768px){ 
+@media only screen and (max-width: 768px) {
   .angled-split::before {
     width: 40vw;
-  }  
+  }
 }
 
 
