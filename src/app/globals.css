@@ -109,51 +109,6 @@
 
 }
 
-
-.angled-split::before,
-.angled-split::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  transform: skew(-12deg);
-  transform-origin: bottom right;
-  z-index: -1;
-}
-
-.angled-split::before {
-  width: 50vw;
-  opacity: 0.5;
-  border-left: 5px solid #090d17;
-}
-
-.line::after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 0.1rem;
-  width: 4rem;
-  right: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
-  animation: drop 6s 0s infinite;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
-  opacity: 0;
-}
-
-.line:nth-child(1)::after {
-  animation-delay: 3s;
-}
-
-.line:nth-child(2)::after {
-  animation-delay: 3.5s;
-}
-
-.line:nth-child(3)::after {
-  animation-delay: 4s;
-}
-
 @keyframes drop {
   0% {
     right: 0;
@@ -184,15 +139,12 @@
 }
 
 @media (min-width: 1024px) {
-  .angled-split::before {
-    width: 40vw;
-  }
+  
+  
 }
 
 @media only screen and (max-width: 768px) {
-  .angled-split::before {
-    width: 40vw;
-  }
+  
 }
 
 
