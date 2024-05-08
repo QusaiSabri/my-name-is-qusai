@@ -1,0 +1,84 @@
+---
+title: "How I Handle Date and Time in My Applications"
+description: "Time is complicated in software development because people access your website from different time zones."
+tag: Software Engineering
+date: "2024-05-7"
+published: true
+---
+# How I Handle Date and Time in My Applications
+
+Time is complicated in software development because people access your website from different time zones.
+
+The recommended best practice is to store datetimes in UTC (Coordinated Universal Time), and convert them to the user's local time when presenting the data to the user.
+
+## Why Use UTC?
+
+1. UTC is not tied to any specific location, so you get a consistent standard time no matter where you live in the world. 
+If the time now is 10:00 AM UTC, It’s 10:00 AM UTC everywhere in the world.
+2. UTC does not observe Daylight Saving Time (DST).
+3. It makes querying the data easier. Imagine having to analyze the data when datetimes aren't standardized! 🥴
+
+When dealing with time, it's important to consider the differences between **Past and Future Times.**
+
+### Past Time
+
+Examples include saving the time a user submits an order or logs actions.
+Best practice for past times include:
+
+- Always store these times in UTC to maintain consistency in your database, regardless of the user's location.
+- Convert the time back to the user’s local time when reading the UTC time.
+
+### **Future Time**
+
+Examples include building scheduling applications, such as calendars or flight booking systems. 
+
+The recommended approach is this:
+
+- Store the time in UTC and also save the associated time zone information. This is so we can accurately convert back to the local time, in case of any changes in time zone rules or DST.
+
+### Why the different approach between Past and Future Times?
+
+If someone in Texas books a flight for 7:00 AM local time on March 7, and we store this as 12:00 PM UTC (Texas being five hours behind UTC), that seems logical. However, on March 10 Daylight Saving Time starts and now Texas is 6 hours behind UTC!
+
+On Monday March 11, that person visits the website and the website will get the data from the database that the flight time is 12:00 PM UTC time, then It’s going to “convert” that to Texas time and It will show the user their flight time is now 6:00 AM !! (Mind blown emoji)
+
+Just because the DST started, doesn’t mean the flight time now is one hour earlier!
+
+By storing both UTC and the time zone, the system can accurately recalculate and display the correct local time at the point of retrieval.
+Without the user’s time zone Info saved at the time of the entry, the backend wouldn’t have a way to know if the premade UTC calculation is still valid or not.
+
+> Time zone rules or DST are weird and change all the time by people introducing new laws. 
+For example In April 2024, the Texas House voted 138-4 to stay on daylight saving time permanently, but Congress still needs to make it official.
+> 
+
+**Ok, So How To Handle Time Zone Information?**
+
+When saving future times, record the exact time zone information at the time of entry. 
+This data help the backend to use the correct conversion rules during data retrieval, respecting any changes in DST or time zone laws.
+
+How do I programmatically convert the time while respect time zones and DST? well, there is the IANA Time Zone Database, It maintains a record of all historical and current time zone differences, including daylight saving adjustments, all 3rd party time libraries use this database to ensure that your application handles time zone conversions accurately and respects local time regulations.
+
+Here’s how you might typically store time zone data using IANA identifiers:
+
+In SQL Server:
+
+| BookingID  | FlightNumber  | DepartureTimeUTC | TimeZoneID |
+| --- | --- | --- | --- |
+| 1 | TX1234 | 2024-03-07 12:00:00 | America/Chicago |
+
+Or in MongoDB:
+
+```json
+{
+    "_id": 1,
+    "flightNumber": "TX1234",
+    "departureTimeUTC": ISODate("2024-03-07T12:00:00Z"),
+    "timeZoneID": "America/Chicago"
+}
+```
+
+## **Conclusion**
+
+I highly recommend using libraries that have already solved all of the edge cases, such as NodaTime for .NET or date-fns for JavaScript, they regularly update their packages to include the latest version of the IANA Time Zone Database.
+
+---
