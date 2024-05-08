@@ -21,15 +21,13 @@ If the time now is 10:00 AM UTC, It’s 10:00 AM UTC everywhere in the world.
 When dealing with time, it's important to consider the differences between **Past and Future Times.**
 
 ### Past Time
-
 Examples include saving the time a user submits an order or logs actions.
 Best practice for past times include:
 
 - Always store these times in UTC to maintain consistency in your database, regardless of the user's location.
 - Convert the time back to the user’s local time when reading the UTC time.
 
-### **Future Time**
-
+### Future Time
 Examples include building scheduling applications, such as calendars or flight booking systems. 
 
 The recommended approach is this:
