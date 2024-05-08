@@ -36,7 +36,7 @@ The recommended approach is this:
 
 ### Why the different approach between Past and Future Times?
 
-If someone in Texas books a flight at 7:00 AM local time on March 7, and flight time is on Monday March 11, and we store this as 12:00 PM UTC (Texas being five hours behind UTC), that seems logical. However, on March 10 Daylight Saving Time starts and now Texas is 6 hours behind UTC!
+If on March 7 someone in Texas books a flight, the flight details is March 11 on Monday at 7:00 AM local time, and we store this as 12:00 PM UTC (Texas being five hours behind UTC), that seems logical. However, on March 10 Daylight Saving Time starts and now Texas is 6 hours behind UTC!
 
 On Monday March 11, that person visits the website and the website will get the data from the database that the flight time is 12:00 PM UTC time, then It’s going to “convert” that to Texas time and It will show the user their flight time is now 6:00 AM !! (Mind blown emoji)
 
