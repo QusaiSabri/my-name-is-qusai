@@ -32,37 +32,40 @@ Examples include building scheduling applications, such as calendars or flight b
 
 The recommended approach is this:
 
-- Store the time in UTC and also save the associated time zone information. This is so we can accurately convert back to the local time, in case of any changes in time zone rules or DST.
+- Store Local Time: Save the time exactly as selected by the user in their local time zone.
+- Store UTC Time: Convert and store the UTC time as well.
+- Store Time Zone Information: Save the IANA time zone identifier, so we can accuratly recalculate the UTC time when retireving the time in the future, in case of any changes in daylight saving rules or time zone adjustments.
 
 ### Why the different approach between Past and Future Times?
 
-If on March 7 someone in Texas books a flight, the flight details is March 11 on Monday at 7:00 AM local time, and we store this as 12:00 PM UTC (Texas being five hours behind UTC), that seems logical. However, on March 10 Daylight Saving Time starts and now Texas is 6 hours behind UTC!
+If on March 7 someone in Texas books a flight for March 11 at 7:00 AM local time, and we store this as 12:00 PM UTC (Texas being five hours behind UTC), that seems logical. However, on March 10, Daylight Saving Time starts and now Texas is 6 hours behind UTC!
 
-On Monday March 11, that person visits the website and the website will get the data from the database that the flight time is 12:00 PM UTC time, then It’s going to “convert” that to Texas time and It will show the user their flight time is now 6:00 AM !! (Mind blown emoji)
+On Monday March 11, that person visits the website and the website will get the data from the database that the flight time is 12:00 PM UTC time, then it’s going to "convert" that to Texas time and it will show the user their flight time is now 6:00 AM !! 🤯
 
 Just because the DST started, doesn’t mean the flight time now is one hour earlier!
 
 By storing both UTC and the time zone, the system can accurately recalculate and display the correct local time at the point of retrieval.
-Without the user’s time zone Info saved at the time of the entry, the backend wouldn’t have a way to know if the premade UTC calculation is still valid or not.
 
-> Time zone rules or DST are weird and change all the time by people introducing new laws. 
-For example In April 2024, the Texas House voted 138-4 to stay on daylight saving time permanently, but Congress still needs to make it official.
+Without the user’s time zone info saved at the time of the entry, the backend wouldn’t have a way to know if the premade UTC calculation is still valid or not.
+
+> Time zone rules or DST are weird and change all the time by people introducing new laws.
+For example, in April 2024, the Texas House voted 138-4 to stay on daylight saving time permanently, but Congress still needs to make it official.
 > 
 
 **Ok, So How To Handle Time Zone Information?**
 
-When saving future times, record the exact time zone information at the time of entry. 
-This data help the backend to use the correct conversion rules during data retrieval, respecting any changes in DST or time zone laws.
+When saving future times, record the exact time zone information at the time of entry.
+This data helps the backend to use the correct conversion rules during data retrieval, respecting any changes in DST or time zone laws.
 
-How do I programmatically convert the time while respect time zones and DST? well, there is the IANA Time Zone Database, It maintains a record of all historical and current time zone differences, including daylight saving adjustments, all 3rd party time libraries use this database to ensure that your application handles time zone conversions accurately and respects local time regulations.
+How do I programmatically convert the time while respecting time zones and DST? Well, there is the IANA Time Zone Database, which maintains a record of all historical and current time zone differences, including daylight saving adjustments. All third-party time libraries use this database to ensure that your application handles time zone conversions accurately and respects local time regulations.
 
 Here’s how you might typically store time zone data using IANA identifiers:
 
 In SQL Server:
 
-| BookingID  | FlightNumber  | DepartureTimeUTC | TimeZoneID |
+| BookingID  | FlightNumber | DepartureTimeLocal | DepartureTimeUTC | TimeZoneID |
 | --- | --- | --- | --- |
-| 1 | TX1234 | 2024-03-11 12:00:00 | America/Chicago |
+| 1 | TX1234 | 2024-03-11 07:00:00 | 2024-03-11 12:00:00 | America/Chicago |
 
 Or in MongoDB:
 
@@ -70,13 +73,14 @@ Or in MongoDB:
 {
     "_id": 1,
     "flightNumber": "TX1234",
-    "departureTimeUTC": ISODate("2024-03-11T12:00:00Z"),
+    "departureTimeLocal": "2024-03-11T07:00:00",
+    "departureTimeUTC": "2024-03-11T12:00:00Z",
     "timeZoneID": "America/Chicago"
 }
 ```
 
 ## **Conclusion**
 
-I highly recommend using libraries that have already solved all of the edge cases, such as NodaTime for .NET or date-fns for JavaScript, they regularly update their packages to include the latest version of the IANA Time Zone Database.
+I highly recommend using libraries that have already solved all of the edge cases, such as NodaTime for .NET or date-fns for JavaScript. They regularly update their packages to include the latest version of the IANA Time Zone Database.
 
 ---
