@@ -4,6 +4,7 @@ import SeeAllPostsLink from "@/components/SeeAllPostsLink";
 import Image from "next/image";
 import { allDocs } from "contentlayer/generated";
 import { getSortedPosts, getTotalPublishedPosts } from "@/utils/postUtils";
+import SkyStars from "@/components/SkyStarts";
 
 export default function Home() {
 
@@ -13,6 +14,8 @@ export default function Home() {
   const publishedPostsMoreThanLimit = (totalPublishedPosts - topNPosts.length) >= 1;
 
   return (
+    <>
+      <SkyStars />
     <main className="mx-auto text-center pt-2 px-8 md:pt-32 md:pl-28 md:pr-8">
       <div className="grid grid-rows-1 md:grid-cols-custom-1-2 grid-flow-row ">
         <section className="mb-6 order-last md:order-first">
@@ -31,13 +34,13 @@ export default function Home() {
           </div>
           { publishedPostsMoreThanLimit && ( 
             <SeeAllPostsLink
-              icon={<Icons.chevronRight className="mr-2 h-4 w-4" />}
+            icon={<Icons.chevronRight className="mr-2 h-4 w-4" />}
             />            
           )}
         </aside>
         </section>
         <header className="flex flex-col gap-6 relative">
-  
+
         <div className="text-3xl font-thin">Welcome to my website!</div>
         <h1 className="text-4xl md:text-5xl font-bold">My name is Qusai!</h1>
         <p className="text-3xl">
@@ -58,5 +61,6 @@ export default function Home() {
       </div>
         <footer></footer>
     </main>
+    </>
   );
 }
