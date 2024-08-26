@@ -25,7 +25,7 @@ export default function SkyStars() {
             key={i}
             cx={Math.random() * 1920}
             cy={Math.random() * 1080}
-            r="0.6"
+            r="0.75"
             style={{
               opacity: i % 2 === 0 ? 0.2 : 1,
               transform: 'scale(var(--motion-scale))',
