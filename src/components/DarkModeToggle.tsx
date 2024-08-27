@@ -7,8 +7,8 @@ import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 
 export default function ModeToggle() {
-  const { setTheme } = useTheme();
-  const [themeMode, setThemeMode] = React.useState('dark');
+  const { setTheme, theme } = useTheme();
+  const [themeMode, setThemeMode] = React.useState(theme);
 
   const toggleTheme = () => {
     if (themeMode === 'light') {

@@ -1,3 +1,5 @@
+'use client';
+
 import { Icons } from "@/components/Icons";
 import PostsList from "@/components/PostsList";
 import SeeAllPostsLink from "@/components/SeeAllPostsLink";
@@ -5,9 +7,11 @@ import Image from "next/image";
 import { allDocs } from "contentlayer/generated";
 import { getSortedPosts, getTotalPublishedPosts } from "@/utils/postUtils";
 import SkyStars from "@/components/SkyStarts";
+import { useTheme } from "next-themes";
 
 export default function Home() {
-
+  
+  const { theme } = useTheme();
   const limit = 3;
   const topNPosts = getSortedPosts(allDocs, limit);
   const totalPublishedPosts = getTotalPublishedPosts(allDocs);
@@ -15,7 +19,8 @@ export default function Home() {
 
   return (
     <>
-      <SkyStars />
+    {theme == 'dark' && 
+      <SkyStars /> }
     <main className="mx-auto text-center pt-2 px-8 md:pt-32 md:pl-28 md:pr-8">
       <div className="grid grid-rows-1 md:grid-cols-custom-1-2 grid-flow-row ">
         <section className="mb-6 order-last md:order-first">

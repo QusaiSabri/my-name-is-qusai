@@ -43,7 +43,7 @@ export default function SkyStars() {
             style={{
               opacity: i % 2 === 0 ? 0.2 : 1,
               transform: 'scale(var(--motion-scale))',
-              animation: `twinkle ${3 + Math.random() * 7}s infinite ease-in-out`,
+              animation: `twinkle ${3 + Math.random() * 6}s infinite ease-in-out`,
               filter: i % 3 === 0 ? 'url(#blurFilter)' : 'none',
             }}
           />
@@ -58,7 +58,7 @@ export default function SkyStars() {
             style={{
               opacity: i % 2 === 0 ? 0.2 : 1,
               transform: 'scale(var(--motion-scale))',
-              animation: `twinkle ${3 + Math.random() * 7}s infinite ease-in-out`,
+              animation: `twinkle ${3 + Math.random() * 4}s infinite ease-in-out`,
               filter: i % 3 === 0 ? 'url(#blurFilter)' : 'none',
             }}
           />
