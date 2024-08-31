@@ -31,7 +31,7 @@ export default function PostsList({ posts }: PostsListProps) {
               >
                 <h2 className="md:text-2xl text-lg font-extrabold">{post.title}</h2>
                 {post.description && (
-                  <p className="text-muted-foreground">{post.description} Read More...</p>
+                  <p className="muted-foreground-on-dark">{post.description} Read More...</p>
                 )}
                 <Link href={post.slug} className="absolute inset-0">
                   <span className="sr-only">View Article</span>

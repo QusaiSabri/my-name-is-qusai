@@ -1,4 +1,15 @@
+'use client';
+import { useEffect, useState } from "react";
 export default function SkyStars() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+    if (!isClient) {
+    return null;
+  }
     return (
       <svg
         viewBox="0 0 1920 1080"
