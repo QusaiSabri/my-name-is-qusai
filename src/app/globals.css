@@ -7,7 +7,7 @@
     --background: 0 0% 100%;
     --foreground: 42, 5%, 29%;
 
-    --background-start-rgb: 201, 218, 191;
+    --background-start-rgb: 233, 231, 232;
     --background-end-rgb: 255, 255, 255;
 
     --card: 0 0% 100%;
@@ -24,7 +24,7 @@
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --muted-foreground-on-dark: 103 8% 83%;
+    /* --muted-foreground-on-dark: 103 8% 83%; */
 
 
     --accent: 210 40% 96.1%;
@@ -39,8 +39,8 @@
 
     --radius: 0.5rem;
 
-    --content-background: 142 11% 43%;
-    --content-background-text: 0 0% 100%;
+    --content-background: 233 231% 232%;
+    /* --content-background-text: 0 0% 100%; */
   }
 
   .dark {
