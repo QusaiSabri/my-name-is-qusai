@@ -23,7 +23,7 @@ export default function Home() {
     {theme == 'dark' && 
       <SkyStars /> }
       <div className="grid grid-rows-1 md:grid-cols-custom-1-2 grid-flow-row ">
-        <section className="section-clip mb-6 order-last md:order-first" style={{ clipPath: "polygon(0 0, 90% 0, 100% 100%, 0 100%)",backgroundColor: "hsl(var(--content-background))", color: "hsl(var(--content-background-text))"  }}>
+        <section className="section-clip mb-6 order-last md:order-first diagnalBackground">
         <aside>
           <div className="container max-w-4xl py-6 lg:py-10">
             <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
