@@ -7,7 +7,7 @@
     --background: 0 0% 100%;
     --foreground: 42, 5%, 29%;
 
-    --background-start-rgb: 233, 231, 232;
+    --background-start-rgb: 255, 255, 255;
     --background-end-rgb: 255, 255, 255;
 
     --card: 0 0% 100%;
@@ -47,7 +47,7 @@
     --background: 16, 22, 43;
     --foreground: 210 40% 98%;
 
-    --background-start-rgb: 4, 6, 17;
+    --background-start-rgb: 17, 24, 39;
     --background-end-rgb: 15, 23, 42;
 
     --card: 222.2 84% 4.9%;
@@ -112,6 +112,12 @@
 
   /* Add your base and utility classes as needed */
 
+}
+
+.gradientBackground {
+  background: radial-gradient(circle, #9a62f7, #8396d5 48%, #00d4ff00);
+    filter: blur(89px);
+    opacity: .2;
 }
 
 .diagnalBackground {

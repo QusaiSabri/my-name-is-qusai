@@ -22,8 +22,10 @@ export default function Home() {
     <main className="mx-auto text-center pt-2 px-8 md:pt-32 md:pl-28 md:pr-8">
     {theme == 'dark' && 
       <SkyStars /> }
-      <div className="grid grid-rows-1 md:grid-cols-custom-1-2 grid-flow-row ">
-        <section className="section-clip mb-6 order-last md:order-first diagnalBackground">
+      <div className="grid grid-rows-1 md:grid-cols-custom-1-2 grid-flow-row">
+        <div className="relative">
+        <section className="top-0 absolute w-full h-full gradientBackground"></section>
+        <section className="section-clip mb-6 order-last md:order-first">
         <aside>
           <div className="container max-w-4xl py-6 lg:py-10">
             <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
@@ -43,6 +45,7 @@ export default function Home() {
           )}
         </aside>
         </section>
+        </div>
         <header className="flex flex-col gap-6 relative py-6 lg:py-10">
 
         <div className="text-3xl font-thin">Welcome to my website!</div>
