@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import { Icons } from "@/components/Icons";
 import PostsList from "@/components/PostsList";
 import SeeAllPostsLink from "@/components/SeeAllPostsLink";
@@ -8,6 +9,7 @@ import { allDocs } from "contentlayer/generated";
 import { getSortedPosts, getTotalPublishedPosts } from "@/utils/postUtils";
 import SkyStars from "@/components/SkyStarts";
 import { useTheme } from "next-themes";
+import { IconGitHub, IconLinkedIn, IconX } from "@/components/icons/SvgIcons";
 
 export default function Home() {
   
@@ -63,7 +65,18 @@ export default function Home() {
         {/* <p className="text-xl max-w-xl pt-10">
           This website is a space where I can share my knowledge, projects, and
           insights from my journey in the tech world.
-        </p> */}        
+        </p> */}
+        <div className="flex max-h-6 w-32 self-center">
+          <Link href="https://x.com/Qusai_Sabri" className="contents" target="_blank">
+            <IconX style={{ fill: "hsl(var(--foreground))" }} />
+          </Link>
+          <Link href="https://github.com/QusaiSabri" className="contents" target="_blank">
+            <IconGitHub style={{ fill: "hsl(var(--foreground))" }} />
+          </Link>
+          <Link href="https://www.linkedin.com/in/qusai-sabri" className="contents" target="_blank">
+            <IconLinkedIn style={{ fill: "hsl(var(--foreground))" }} />
+          </Link>
+        </div>
         </header>
       </div>
         <footer></footer>
