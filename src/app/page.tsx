@@ -66,15 +66,15 @@ export default function Home() {
           This website is a space where I can share my knowledge, projects, and
           insights from my journey in the tech world.
         </p> */}
-        <div className="flex max-h-6 w-32 self-center">
-          <Link href="https://x.com/Qusai_Sabri" className="contents" target="_blank">
-            <IconX style={{ fill: "hsl(var(--foreground))" }} />
+        <div className="flex max-h-6 w-32 self-center space-x-4"> 
+          <Link href="https://x.com/Qusai_Sabri" className="inline-flex" target="_blank">
+            <IconX style={{ width: "24px", height: "24px", fill: "hsl(var(--foreground))", display: "block" }} />
           </Link>
-          <Link href="https://github.com/QusaiSabri" className="contents" target="_blank">
-            <IconGitHub style={{ fill: "hsl(var(--foreground))" }} />
+          <Link href="https://github.com/QusaiSabri" className="inline-flex" target="_blank">
+            <IconGitHub style={{ width: "24px", height: "24px", fill: "hsl(var(--foreground))", display: "block" }} />
           </Link>
-          <Link href="https://www.linkedin.com/in/qusai-sabri" className="contents" target="_blank">
-            <IconLinkedIn style={{ fill: "hsl(var(--foreground))" }} />
+          <Link href="https://www.linkedin.com/in/qusai-sabri" className="inline-flex" target="_blank">
+            <IconLinkedIn style={{ width: "24px", height: "24px", fill: "hsl(var(--foreground))", display: "block" }} />
           </Link>
         </div>
         </header>
