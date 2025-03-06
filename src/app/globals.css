@@ -45,7 +45,9 @@
 
   .dark {
     --background: 16, 22, 43;
-    --foreground: 210 40% 98%;
+    --foreground: 209 14% 68%;
+
+    --lighter-foreground: 0, 0%, 100%, 0.85;
 
     --background-start-rgb: 17, 24, 39;
     --background-end-rgb: 15, 23, 42;

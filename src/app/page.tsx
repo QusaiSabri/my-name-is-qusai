@@ -48,7 +48,9 @@ export default function Home() {
         </aside>
         </section>
         </div>
-        <header className="flex flex-col gap-6 relative py-6 lg:py-10">
+        {/* <header className="flex flex-col gap-6 relative py-6 lg:py-10"> */}
+            <header className="flex flex-col gap-6 relative py-6 lg:py-10 lg:sticky lg:top-0 lg:self-start">
+
 
         <div className="text-3xl font-thin">Welcome to my website!</div>
         <h1 className="text-4xl md:text-5xl font-bold">My name is Qusai!</h1>

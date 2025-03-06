@@ -29,9 +29,9 @@ export default function PostsList({ posts }: PostsListProps) {
                   post.image ? "xl:col-span-3" : "xl:col-span-4"
                 } space-y-4 py-4 pl-4 text-left`}
               >
-                <h2 className="md:text-2xl text-lg font-extrabold">{post.title}</h2>
+                <h2 className="md:text-2xl text-lg font-extrabold text-[hsl(var(--lighter-foreground))]">{post.title}</h2>
                 {post.description && (
-                  <p className="muted-foreground-on-dark">{post.description} Read More...</p>
+                  <p className="muted-foreground-on-dark ">{post.description} <br/><br/> Read More...</p>
                 )}
                 <Link href={post.slug} className="absolute inset-0">
                   <span className="sr-only">View Article</span>
