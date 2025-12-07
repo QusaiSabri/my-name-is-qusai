@@ -10,9 +10,9 @@ import { getSortedPosts, getTotalPublishedPosts } from "@/utils/postUtils";
 import SkyStars from "@/components/SkyStarts";
 import { useTheme } from "next-themes";
 import { IconGitHub, IconLinkedIn, IconX } from "@/components/icons/SvgIcons";
+import { motion } from "framer-motion";
 
 export default function Home() {
-  
   const { theme } = useTheme();
   const limit = 3;
   const topNPosts = getSortedPosts(allDocs, limit);
@@ -20,69 +20,89 @@ export default function Home() {
   const publishedPostsMoreThanLimit = (totalPublishedPosts - topNPosts.length) >= 1;
 
   return (
-    <>
-    <main className="mx-auto text-center pt-2 px-8 md:pt-32 md:pl-28 md:pr-8">
-    {theme == 'dark' && 
-      <SkyStars /> }
-      <div className="grid grid-rows-1 md:grid-cols-custom-1-2 grid-flow-row">
-        <div className="relative">
-        <section className="top-0 absolute w-full h-full gradientBackground"></section>
-        <section className="section-clip mb-6 order-last md:order-first">
-        <aside>
-          <div className="container max-w-4xl py-6 lg:py-10">
-            <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-              <div className="flex-1 space-y-4 text-left">
-                <h2 className="inline-block font-heading text-3xl tracking-tight lg:text-4xl">
+    <main className="min-h-screen relative overflow-hidden pb-10">
+      {theme === 'dark' && <SkyStars />}
+      
+      <div className="container mx-auto px-4 pt-10 md:pt-20">
+        <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-24">
+          
+          {/* Main Content (Posts) */}
+          <div className="flex-1 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-bold tracking-tight lg:text-4xl bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
                   Latest Posts
                 </h2>
               </div>
-            </div>
-            <hr className="my-2" />
-            <PostsList posts={topNPosts}/>
+              <PostsList posts={topNPosts}/>
+              
+              {publishedPostsMoreThanLimit && ( 
+                <div className="mt-8 flex justify-center lg:justify-start">
+                  <SeeAllPostsLink
+                    icon={<Icons.chevronRight className="mr-2 h-4 w-4" />}
+                  />
+                </div>
+              )}
+            </motion.div>
           </div>
-          { publishedPostsMoreThanLimit && ( 
-            <SeeAllPostsLink
-            icon={<Icons.chevronRight className="mr-2 h-4 w-4" />}
-            />            
-          )}
-        </aside>
-        </section>
-        </div>
-        {/* <header className="flex flex-col gap-6 relative py-6 lg:py-10"> */}
-            <header className="flex flex-col gap-6 relative py-6 lg:py-10 lg:sticky lg:top-0 lg:self-start">
 
+          {/* Sidebar / Profile (Sticky) */}
+          <aside className="lg:w-[400px] relative">
+            <div className="sticky top-24">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col items-center text-center p-8 rounded-3xl border border-border/50 bg-card/30 backdrop-blur-xl shadow-2xl"
+              >
+                <div className="relative mb-6 group">
+                  <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-orange-600 opacity-75 blur transition duration-500 group-hover:opacity-100"></div>
+                  <Image
+                    className="relative rounded-full border-4 border-background"
+                    src="/images/Qusai_Sabri.jpeg"
+                    alt="Qusai Sabri"
+                    width={200}
+                    height={200}
+                    priority
+                  />
+                </div>
 
-        <div className="text-3xl font-thin">Welcome to my website!</div>
-        <h1 className="text-4xl md:text-5xl font-bold">My name is Qusai!</h1>
-        <p className="text-3xl">
-          I&apos;m a full stack web developer
-        </p>
-        <Image
-          className="rounded-full mx-auto"
-          src="/images/Qusai_Sabri.jpeg"
-          alt="Qusai Sabri"
-          width="200"
-          height="200"
-        />
-        {/* <p className="text-xl max-w-xl pt-10">
-          This website is a space where I can share my knowledge, projects, and
-          insights from my journey in the tech world.
-        </p> */}
-        <div className="flex max-h-6 w-32 self-center space-x-4"> 
-          <Link href="https://x.com/Qusai_Sabri" className="inline-flex" target="_blank">
-            <IconX style={{ width: "24px", height: "24px", fill: "hsl(var(--foreground))", display: "block" }} />
-          </Link>
-          <Link href="https://github.com/QusaiSabri" className="inline-flex" target="_blank">
-            <IconGitHub style={{ width: "24px", height: "24px", fill: "hsl(var(--foreground))", display: "block" }} />
-          </Link>
-          <Link href="https://www.linkedin.com/in/qusai-sabri" className="inline-flex" target="_blank">
-            <IconLinkedIn style={{ width: "24px", height: "24px", fill: "hsl(var(--foreground))", display: "block" }} />
-          </Link>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="space-y-4"
+                >
+                  <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+                    <span className="block text-lg font-medium text-muted-foreground mb-2">Hello, I&apos;m</span>
+                    Qusai
+                  </h1>
+                  <p className="text-xl text-muted-foreground font-medium">
+                    Full Stack Web Developer
+                  </p>
+                  
+                  <div className="flex justify-center gap-4 pt-4">
+                    <Link href="https://x.com/Qusai_Sabri" target="_blank" className="p-2 rounded-full hover:bg-accent transition-colors">
+                      <IconX style={{ width: "24px", height: "24px", fill: "currentColor" }} />
+                    </Link>
+                    <Link href="https://github.com/QusaiSabri" target="_blank" className="p-2 rounded-full hover:bg-accent transition-colors">
+                      <IconGitHub style={{ width: "24px", height: "24px", fill: "currentColor" }} />
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/qusai-sabri" target="_blank" className="p-2 rounded-full hover:bg-accent transition-colors">
+                      <IconLinkedIn style={{ width: "24px", height: "24px", fill: "currentColor" }} />
+                    </Link>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </aside>
+
         </div>
-        </header>
       </div>
-        <footer></footer>
     </main>
-    </>
   );
 }
