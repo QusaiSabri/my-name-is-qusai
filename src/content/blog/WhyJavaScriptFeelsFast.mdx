@@ -1,0 +1,69 @@
+---
+title: "Why JavaScript Feels Fast Even Though It's Single-Threaded"
+description: "JavaScript runs on one thread but feels quick thanks to the browser, Web APIs, and the event loop! but how?"
+date: "2025-12-07"
+image: "/images/blog/js-event-loop.svg"
+published: true
+---
+# Why JavaScript Feels Fast Even Though It's Single-Threaded
+
+JavaScript runs on one thread, It can only do one thing at a time!
+But thanks to the browser, it still feels quick and smooth.
+
+But how?
+
+![The JavaScript Event Loop](/images/blog/js-event-loop.svg)
+
+## Understanding the JavaScript Call Stack and Event Loop
+
+JavaScript runs in a single thread. It can only do one thing at a time. To keep things smooth, the browser uses a few parts that work together: the call stack, Web APIs, the event loop, the callback queue and the microtask queue.
+
+Because of this setup, JavaScript feels asynchronous even though it runs on one thread.
+
+### The Call Stack
+
+The call stack is where your functions run.
+If you call a function, it goes on the stack.
+When it finishes, it gets removed.
+If the stack is busy, nothing else can run.
+
+### Web APIs
+
+The browser gives JavaScript extra tools like timers, fetch and DOM events.
+
+When you call `setTimeout` or `fetch`, the work goes to these Web APIs.
+They run in the background, away from the call stack.
+
+### The Callback Queue
+
+When a Web API finishes its work, it sends the callback to the callback queue.
+The callback waits there until the call stack is empty.
+The event loop checks the stack all the time and runs the next item when the stack is free.
+
+### The Microtask Queue
+
+The microtask queue was added because promises needed more predictable timing.
+
+A common example is when you call an API to get data with `fetch`.
+
+When the data comes back, you want your promise code to run right away so the page can update, not wait behind timers or random events.
+
+So microtasks run before the normal callback queue.
+This keeps promise timing stable and easy to trust.
+
+### The Event Loop
+
+The event loop is what keeps everything moving.
+
+It checks the call stack. If the stack is empty, it sends work from the microtask queue or the callback queue back into the stack.
+
+This is why JavaScript feels asynchronous. The event loop keeps switching between queues and the stack so work flows smoothly.
+
+## Simple Flow
+
+1. You call a function, it goes on the stack.
+2. If it uses a Web API, the work goes to the browser.
+3. When that work finishes, the callback moves to a queue.
+4. The event loop waits for the stack to be empty, then runs the next item.
+5. Microtasks (promises) always run first.
+

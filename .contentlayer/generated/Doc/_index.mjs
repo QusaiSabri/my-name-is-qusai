@@ -3,5 +3,6 @@
 import blog__gitWorktreeSwitchBranchesWithoutStashingMdx from './blog__GitWorktreeSwitchBranchesWithoutStashing!.mdx.json' assert { type: 'json' }
 import blog__howIHandleDateAndTimeInMyApplicationsMdx from './blog__HowIHandleDateAndTimeInMyApplications.mdx.json' assert { type: 'json' }
 import blog__whyEveryDeveloperShouldLearnDesignPatternsMdx from './blog__WhyEveryDeveloperShouldLearnDesignPatterns.mdx.json' assert { type: 'json' }
+import blog__whyJavaScriptFeelsFastMdx from './blog__WhyJavaScriptFeelsFast.mdx.json' assert { type: 'json' }
 
-export const allDocs = [blog__gitWorktreeSwitchBranchesWithoutStashingMdx, blog__howIHandleDateAndTimeInMyApplicationsMdx, blog__whyEveryDeveloperShouldLearnDesignPatternsMdx]
+export const allDocs = [blog__gitWorktreeSwitchBranchesWithoutStashingMdx, blog__howIHandleDateAndTimeInMyApplicationsMdx, blog__whyEveryDeveloperShouldLearnDesignPatternsMdx, blog__whyJavaScriptFeelsFastMdx]
