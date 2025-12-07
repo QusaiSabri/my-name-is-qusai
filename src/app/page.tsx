@@ -8,20 +8,32 @@ import Image from "next/image";
 import { allDocs } from "contentlayer/generated";
 import { getSortedPosts, getTotalPublishedPosts } from "@/utils/postUtils";
 import SkyStars from "@/components/SkyStarts";
+import ShootingStars from "@/components/ShootingStars";
 import { useTheme } from "next-themes";
 import { IconGitHub, IconLinkedIn, IconX } from "@/components/icons/SvgIcons";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const limit = 3;
   const topNPosts = getSortedPosts(allDocs, limit);
   const totalPublishedPosts = getTotalPublishedPosts(allDocs);
   const publishedPostsMoreThanLimit = (totalPublishedPosts - topNPosts.length) >= 1;
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <main className="min-h-screen relative overflow-hidden pb-10">
-      {theme === 'dark' && <SkyStars />}
+      {mounted && theme === 'dark' && (
+        <>
+          <SkyStars />
+          <ShootingStars />
+        </>
+      )}
       
       <div className="container mx-auto px-4 pt-10 md:pt-20">
         <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-24">
